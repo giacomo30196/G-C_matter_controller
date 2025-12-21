@@ -1568,6 +1568,17 @@
 		)
 		(uuid "15ec222e-ec13-48fe-a5a4-0e29cf9b1ef0")
 	)
+	(text "preverdere ESD si gle line to GND al posto di sr70."
+		(exclude_from_sim no)
+		(at 68.58 75.692 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 0 40 1)
+			)
+		)
+		(uuid "4dbe0412-3c7a-4df5-8088-fc4037c6c5b0")
+	)
 	(text "Ragionamento progettuale “filato” (open-line a 3V3)\n1) Problema da risolvere\n\nQuando la linea 0–10 V è scollegata, il nodo di misura può risultare floating (rumore, EMI, leakage). Questo è pessimo perché:\n\nrende la lettura non deterministica,\n\ncomplica il firmware,\n\ncrea edge case in validazione e compliance.\n\nQuindi serve uno stato open-line definito.\n\n2) Scelta di design: forzare open-line alto (3V3)\n\nInvece di far collassare open-line a 0 V, scegli di polarizzare il nodo di misura verso 3.3 V con un pull-up molto debole.\n\nIn pratica:\n\nlinea scollegata ⇒ il nodo va a 3.3 V ⇒ firmware lo interpreta come “input not present”\n\nlinea collegata ⇒ il nodo resta nel range valido derivato dal partitore (es. 0–2.9 V) ⇒ firmware lo interpreta come “input present”\n\nQuesto elimina ogni ambiguità legata al floating.\n\n3) Condizione fondamentale: dove metti il pull-up\n\nIl punto chiave per non creare problemi (anche in certificazione) è non iniettare corrente verso la linea esterna.\n\nPer questo:\n\nil pull-up va messo solo sul nodo interno, cioè post-buffer, vicino all’ADC,\n\nnon sul lato connettore / prima del partitore.\n\nSchema concettuale:\n\nPartitore → OPA follower → VBUF ── Rout (47Ω) → ADC\n                         │\n                         └─ Rpullup (1–2.2 MΩ) → 3.3 V\n\n\nCosì:\n\nil bias resta “interno” e controllato,\n\nnon back-feedi il cablaggio 0–10 V.\n\n4) Perché funziona (senza test)\n\nLa logica è puramente di “dominanza di impedenza”:\n\ncon linea open, l’op-amp/ADC node non è pilotato da nulla → il pull-up (anche debolissimo) lo porta alto;\n\ncon linea presente, l’op-amp sta bufferizzando un valore reale (0–2.9 V circa) e “tiene” il nodo, quindi il pull-up non sposta la misura in modo significativo.\n\nIl pull-up è scelto nell’ordine dei MΩ proprio per essere:\n\nabbastanza forte da definire lo stato open,\n\nabbastanza debole da non disturbare il nodo quando è pilotato.\n\n5) Soglie firmware (per evitare ambiguità)\n\nPer rendere la semantica inattaccabile:\n\ndefinisci un range “valido” sotto il massimo atteso (es. fino a 3.0 V),\n\ndefinisci open-line sopra una soglia alta (es. >3.1 V).\n\nQuesto funziona bene perché:\n\nil tuo full-scale reale con 10 V è ~2.9 V (o più basso se c’è Rseries in serie),\n\nquindi hai un margine di separazione.\n\n6) Impatto su certificazione: cosa conta davvero\n\nQuesta scelta non è un “red flag” di per sé. In review e test contano tre cose:\n\nNessun backfeed verso il connettore\n→ garantito posizionando Rpullup post-buffer.\n\nComportamento deterministico in fault/open\n→ open-line definito a 3.3 V è deterministico (meglio del floating).\n\nGestione dello stato in firmware documentata\n→ “ADC > soglia ⇒ input non presente ⇒ comportamento definito”.\n\nIn pratica, è una soluzione difendibile se progettata e documentata con disciplina.\n\n7) Decisione finale (implementazione)\n\nImplementa Rpullup = 1 MΩ (baseline) o 2.2 MΩ (più conservativa) verso 3.3 V sul nodo ADC/bufferizzato.\n\nDefinisci in firmware:\n\nVadc ≤ 3.0 V ⇒ input valido\n\nVadc > 3.1 V ⇒ open-line\n\nDocumenta in RA/manuale: stato open-line e fallback behavior"
 		(exclude_from_sim no)
 		(at 277.622 -92.456 0)
@@ -1598,42 +1609,17 @@
 		)
 		(uuid "d5acb675-86b3-41aa-9b90-ff50506bb130")
 	)
-	(text "non va bene vcc float. \nserve esd diode con clamp singolo a gnd.\ntrovare alternativa"
-		(exclude_from_sim no)
-		(at 64.77 74.93 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(color 255 0 74 1)
-			)
-		)
-		(uuid "f346a83f-f871-464b-85bf-90416402f749")
-	)
-	(text_box "Dovremmo sposterlo sus schema eps32? e se invece di 3v3 lo collegassi a gpio? potrei avere un fallback all'altro sistema di riconoscimento openline"
-		(exclude_from_sim no)
-		(at 217.17 55.88 0)
-		(size 31.75 26.67)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "72c2bd93-4ef5-4667-b1fe-4e5776d46389")
-	)
 	(junction
 		(at 88.9 81.28)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "34d982ee-3d8f-405a-9c51-6d5885ae9879")
+	)
+	(junction
+		(at 49.53 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4adb37f8-681b-4157-975f-edc18dd585d6")
 	)
 	(junction
 		(at 187.96 86.36)
@@ -1672,7 +1658,11 @@
 		(uuid "f88fd056-2e19-416a-be70-7700a6e18f45")
 	)
 	(no_connect
-		(at 80.01 83.82)
+		(at 80.01 85.09)
+		(uuid "40bda0c3-7eea-4160-8eff-5c13731160eb")
+	)
+	(no_connect
+		(at 80.01 87.63)
 		(uuid "5e6eeb2d-a3ac-479c-be90-ba14cfb2a31b")
 	)
 	(wire
@@ -1704,6 +1694,16 @@
 			(type default)
 		)
 		(uuid "0977510f-882c-4ce6-b2ff-0d33e2409cd4")
+	)
+	(wire
+		(pts
+			(xy 49.53 85.09) (xy 49.53 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "09a21336-0cc6-4fea-84e8-9cf49cbd36d8")
 	)
 	(wire
 		(pts
@@ -1767,6 +1767,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 81.28) (xy 41.91 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "299bef1a-e802-4d7c-838d-31159d60a9f3")
+	)
+	(wire
+		(pts
 			(xy 132.08 81.28) (xy 132.08 83.82)
 		)
 		(stroke
@@ -1814,16 +1824,6 @@
 			(type default)
 		)
 		(uuid "3e826085-809a-4232-a7ef-527c4b2e54fa")
-	)
-	(wire
-		(pts
-			(xy 41.91 81.28) (xy 49.53 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "465ca46b-369b-4417-8784-8d75c97675b2")
 	)
 	(wire
 		(pts
@@ -1877,7 +1877,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 86.36) (xy 49.53 83.82)
+			(xy 49.53 88.9) (xy 49.53 87.63)
 		)
 		(stroke
 			(width 0)
@@ -1914,16 +1914,6 @@
 			(type default)
 		)
 		(uuid "90ea041a-6ef0-4963-b356-5e4ed3bdc891")
-	)
-	(wire
-		(pts
-			(xy 80.01 81.28) (xy 88.9 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a0fb06d0-2dc8-41ff-92aa-48e297c44ef2")
 	)
 	(wire
 		(pts
@@ -1974,6 +1964,16 @@
 			(type default)
 		)
 		(uuid "e9d708e7-2829-4e69-9dd5-eec214fdd10d")
+	)
+	(wire
+		(pts
+			(xy 49.53 81.28) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fb0735b2-42a4-4c86-ad91-dc7e42fe972b")
 	)
 	(wire
 		(pts
@@ -2437,7 +2437,7 @@
 	)
 	(symbol
 		(lib_id "SamacSys_Parts:SR70")
-		(at 49.53 83.82 0)
+		(at 49.53 87.63 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2446,7 +2446,7 @@
 		(dnp no)
 		(uuid "2d569be5-c728-4a3c-abc1-b10b6fbf8c31")
 		(property "Reference" "D3"
-			(at 64.77 91.44 0)
+			(at 64.77 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2454,7 +2454,7 @@
 			)
 		)
 		(property "Value" "SR70"
-			(at 64.77 88.9 0)
+			(at 64.77 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2462,7 +2462,7 @@
 			)
 		)
 		(property "Footprint" "SamacSys_Parts:SR70"
-			(at 76.2 -11.1 0)
+			(at 76.2 -7.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2472,7 +2472,7 @@
 			)
 		)
 		(property "Datasheet" "https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/44000000MCnk/NVmsteGoM4UAaX6hoGpvgktJ4xwPqA4OLClS_.gLyE4"
-			(at 76.2 -111.1 0)
+			(at 76.2 -107.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2482,7 +2482,7 @@
 			)
 		)
 		(property "Description" "RailClamp Low-Capacitance TVS Diode Array"
-			(at 49.53 83.82 0)
+			(at 49.53 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2491,7 +2491,7 @@
 			)
 		)
 		(property "Height" "1.22"
-			(at 76.2 -311.1 0)
+			(at 76.2 -307.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2501,7 +2501,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "SEMTECH"
-			(at 76.2 -411.1 0)
+			(at 76.2 -407.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2511,7 +2511,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "SR70"
-			(at 76.2 -511.1 0)
+			(at 76.2 -507.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2521,7 +2521,7 @@
 			)
 		)
 		(property "Mouser Part Number" ""
-			(at 76.2 -611.1 0)
+			(at 76.2 -607.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2531,7 +2531,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" ""
-			(at 76.2 -711.1 0)
+			(at 76.2 -707.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2541,7 +2541,7 @@
 			)
 		)
 		(property "Arrow Part Number" ""
-			(at 76.2 -811.1 0)
+			(at 76.2 -807.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2551,7 +2551,7 @@
 			)
 		)
 		(property "Arrow Price/Stock" ""
-			(at 76.2 -911.1 0)
+			(at 76.2 -907.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2728,94 +2728,6 @@
 			(project ""
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
 					(reference "#PWR01")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 185.42 97.79 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3992599f-7eaa-4970-a860-28c7def0bfdc")
-		(property "Reference" "C2"
-			(at 189.23 96.5199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF 16V X7R ±5% 0603"
-			(at 189.23 99.0599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 186.3852 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 185.42 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 185.42 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CC0603JRX7R7BB104"
-			(at 185.42 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manifacturer" "YAGEO"
-			(at 185.42 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3187202e-c2f8-4549-b982-20f41edba457")
-		)
-		(pin "2"
-			(uuid "b308884f-c3ef-4bbe-850c-632cc154ba1c")
-		)
-		(instances
-			(project "PCB"
-				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
-					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -3125,6 +3037,94 @@
 			(project "PCB"
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
 					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 185.42 97.79 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5aa33a61-4096-4894-a502-9d7c5c6e2c17")
+		(property "Reference" "C2"
+			(at 189.23 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF 50V X7R ±5% 0603"
+			(at 189.23 99.0599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 186.3852 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 185.42 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 185.42 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC0603JRX7R9BB104"
+			(at 185.42 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manifacturer" "YAGEO"
+			(at 185.42 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6747f9af-918c-4e2a-8c79-f7334e628687")
+		)
+		(pin "2"
+			(uuid "456ac0fa-bae7-45e4-b4e5-6c32e5cb0af2")
+		)
+		(instances
+			(project "PCB"
+				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -3479,94 +3479,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
-		(at 193.04 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "874626f5-4f7d-4f55-917c-2cd901891b84")
-		(property "Reference" "C3"
-			(at 196.85 92.7099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "16V 1uF X7R ±5% 0603"
-			(at 196.85 95.2499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 194.0052 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 193.04 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 193.04 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" "CC0603JRX7R7BB105"
-			(at 193.04 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manifacturer" "YAGEO"
-			(at 193.04 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c1143d8a-c0a0-4403-a1b4-8d1c3ac6794a")
-		)
-		(pin "2"
-			(uuid "c6e1ad41-68b9-43ec-a606-4a76d865e4cf")
-		)
-		(instances
-			(project "PCB"
-				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GNDA")
 		(at 154.94 101.6 0)
 		(unit 1)
@@ -3634,7 +3546,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 49.53 86.36 0)
+		(at 49.53 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3643,7 +3555,7 @@
 		(fields_autoplaced yes)
 		(uuid "8ddd311a-4d31-48a9-88d3-ee9d2cc48f5a")
 		(property "Reference" "#PWR021"
-			(at 49.53 92.71 0)
+			(at 49.53 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3652,7 +3564,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 49.53 91.44 0)
+			(at 49.53 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3660,7 +3572,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 49.53 86.36 0)
+			(at 49.53 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3669,7 +3581,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 49.53 86.36 0)
+			(at 49.53 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3678,7 +3590,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 49.53 86.36 0)
+			(at 49.53 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3761,6 +3673,94 @@
 			(project ""
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 193.04 93.98 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c8ea554f-799d-4318-a553-28b288ca6cbd")
+		(property "Reference" "C3"
+			(at 196.85 92.7099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1uF 50V X7R ±10% 0603"
+			(at 196.85 95.2499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 192.0748 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 193.04 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 193.04 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC0603KRX7R9BB105"
+			(at 193.04 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manifacturer" "YAGEO"
+			(at 193.04 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1f8c2f4d-f00d-414e-9626-94264aad9f81")
+		)
+		(pin "2"
+			(uuid "cfd1fb28-8cdb-4858-a88b-3c17b83f6bfe")
+		)
+		(instances
+			(project "PCB"
+				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
+					(reference "C3")
 					(unit 1)
 				)
 			)

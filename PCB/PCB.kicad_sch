@@ -39,6 +39,36 @@
 				(justify left top)
 			)
 		)
+		(pin "SCLK" input
+			(at 156.21 100.33 180)
+			(uuid "3b8f35c9-1f00-48d0-a7c4-961d88c840a0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SDA" bidirectional
+			(at 156.21 102.87 180)
+			(uuid "13ad16bf-0d52-4ed5-83f4-e7215985b6de")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "VCC" input
+			(at 166.37 96.52 90)
+			(uuid "c3a0f2c2-f154-47a8-8927-9e720623151b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "PCB"
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7"
@@ -174,8 +204,8 @@
 		)
 	)
 	(sheet
-		(at 86.36 93.98)
-		(size 22.86 15.24)
+		(at 86.36 96.52)
+		(size 22.86 12.7)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -190,7 +220,7 @@
 		)
 		(uuid "8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de")
 		(property "Sheetname" "0-10V Input"
-			(at 86.36 93.2684 0)
+			(at 86.36 95.8084 0)
 			(effects
 				(font
 					(size 1.27 1.27)
