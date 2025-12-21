@@ -1550,6 +1550,17 @@
 		)
 		(uuid "303636c7-4871-4f7b-9efd-b7ad684a23e8")
 	)
+	(text "questo è per due linee non va bene...\na meno che non si voglia prevedere secondo 0-10V output. \n"
+		(exclude_from_sim no)
+		(at 184.15 71.628 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 0 40 1)
+			)
+		)
+		(uuid "50548a58-b9d1-4efe-90ec-d2750b99bd46")
+	)
 	(text "PULL UP i2c su ESP"
 		(exclude_from_sim no)
 		(at 168.91 43.942 0)
@@ -1571,6 +1582,12 @@
 		(uuid "84d322b7-6495-4b60-9761-82f1c714d316")
 	)
 	(junction
+		(at 166.37 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1d934c6c-8ea3-49b5-89d4-67ad49c36bb6")
+	)
+	(junction
 		(at 152.4 78.74)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1587,6 +1604,10 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b46fe88f-185d-4939-9672-a51bb628345a")
+	)
+	(no_connect
+		(at 196.85 78.74)
+		(uuid "77265400-cc68-4a5a-b06c-5b89fa55596b")
 	)
 	(no_connect
 		(at 113.03 81.28)
@@ -1734,6 +1755,16 @@
 	)
 	(wire
 		(pts
+			(xy 209.55 78.74) (xy 209.55 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a31cd297-2cf4-4970-a55f-0d67a056817d")
+	)
+	(wire
+		(pts
 			(xy 166.37 96.52) (xy 166.37 81.28)
 		)
 		(stroke
@@ -1741,6 +1772,16 @@
 			(type default)
 		)
 		(uuid "b4db972b-7c47-4ef7-a0d3-3b2693fb9613")
+	)
+	(wire
+		(pts
+			(xy 166.37 67.31) (xy 166.37 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c29ac5b1-1460-43f9-bec9-96d177376352")
 	)
 	(wire
 		(pts
@@ -1761,6 +1802,16 @@
 			(type default)
 		)
 		(uuid "cdee9562-611c-4add-8e6f-73071738cc8d")
+	)
+	(wire
+		(pts
+			(xy 209.55 67.31) (xy 166.37 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4b73585-8df8-43e6-9d36-1695d6bc0840")
 	)
 	(wire
 		(pts
@@ -1811,16 +1862,6 @@
 			(type default)
 		)
 		(uuid "e35a1e69-7906-4211-9c93-4596b491cfb1")
-	)
-	(wire
-		(pts
-			(xy 196.85 78.74) (xy 209.55 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ed227685-18f2-4a8e-b402-506490864f39")
 	)
 	(wire
 		(pts
