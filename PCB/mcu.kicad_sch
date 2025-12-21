@@ -5,4 +5,24 @@
 	(uuid "45e29bae-eb50-4f4e-b9ed-fb8d2a628e7a")
 	(paper "A4")
 	(lib_symbols)
+	(text "progtrm pin"
+		(exclude_from_sim no)
+		(at 46.99 51.562 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "499feadd-6b54-4295-9a1d-3fc9a7a119f4")
+	)
+	(text "PULL UP i2c su ESP"
+		(exclude_from_sim no)
+		(at 48.768 57.658 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "919e5fcc-07ac-4150-9535-f99ffb2228c0")
+	)
 )

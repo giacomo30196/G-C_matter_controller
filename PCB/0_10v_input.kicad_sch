@@ -795,6 +795,214 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "SamacSys_Parts:SR70"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 26.67 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "SR70"
+				(at 26.67 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "SR70"
+				(at 26.67 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/44000000MCnk/NVmsteGoM4UAaX6hoGpvgktJ4xwPqA4OLClS_.gLyE4"
+				(at 26.67 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "RailClamp Low-Capacitance TVS Diode Array"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "1.22"
+				(at 26.67 -394.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "SEMTECH"
+				(at 26.67 -494.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "SR70"
+				(at 26.67 -594.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" ""
+				(at 26.67 -694.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" ""
+				(at 26.67 -794.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Part Number" ""
+				(at 26.67 -894.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Arrow Price/Stock" ""
+				(at 26.67 -994.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "SR70_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 25.4 -5.08)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "I/O_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 30.48 0 180)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 30.48 -2.54 180)
+					(length 5.08)
+					(name "I/O_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "SamacSys_Parts:TLV9061IDBVR"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1372,23 +1580,13 @@
 	)
 	(text "Phoenix Contact\nMFR.Part #\n1729128"
 		(exclude_from_sim no)
-		(at 63.246 86.868 0)
+		(at 31.496 86.868 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 		(uuid "82ed1d8a-3a9a-4c58-a821-06b8f1bacdcd")
-	)
-	(text "Quetsto è un po' costoso."
-		(exclude_from_sim no)
-		(at 86.614 104.14 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "aac6806b-e778-4f1e-a756-dbd9333e301a")
 	)
 	(text "Connettore\nHousing UL94 V-0 (materiale)\nRated voltage ≥ 150 V\nRated current ≥ 1 A\nPitch e meccanica coerenti con AWG 24-18\nDocumentazione costruttore disponibile su richiesta RA/UL file\nMa perchè?"
 		(exclude_from_sim no)
@@ -1400,11 +1598,42 @@
 		)
 		(uuid "d5acb675-86b3-41aa-9b90-ff50506bb130")
 	)
+	(text "non va bene vcc float. \nserve esd diode con clamp singolo a gnd.\ntrovare alternativa"
+		(exclude_from_sim no)
+		(at 64.77 74.93 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(color 255 0 74 1)
+			)
+		)
+		(uuid "f346a83f-f871-464b-85bf-90416402f749")
+	)
+	(text_box "Dovremmo sposterlo sus schema eps32? e se invece di 3v3 lo collegassi a gpio? potrei avere un fallback all'altro sistema di riconoscimento openline"
+		(exclude_from_sim no)
+		(at 217.17 55.88 0)
+		(size 31.75 26.67)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "72c2bd93-4ef5-4667-b1fe-4e5776d46389")
+	)
 	(junction
-		(at 86.36 81.28)
+		(at 88.9 81.28)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "131a80b0-4b05-4d02-8884-c771a2a26002")
+		(uuid "34d982ee-3d8f-405a-9c51-6d5885ae9879")
 	)
 	(junction
 		(at 187.96 86.36)
@@ -1442,19 +1671,13 @@
 		(color 0 0 0 0)
 		(uuid "f88fd056-2e19-416a-be70-7700a6e18f45")
 	)
-	(wire
-		(pts
-			(xy 111.76 81.28) (xy 119.38 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "00387f84-8a26-444b-b605-9e71ebfd8fbe")
+	(no_connect
+		(at 80.01 83.82)
+		(uuid "5e6eeb2d-a3ac-479c-be90-ba14cfb2a31b")
 	)
 	(wire
 		(pts
-			(xy 74.93 83.82) (xy 74.93 85.09)
+			(xy 41.91 83.82) (xy 41.91 86.36)
 		)
 		(stroke
 			(width 0)
@@ -1501,6 +1724,16 @@
 			(type default)
 		)
 		(uuid "0e0d0bcb-ee09-4b12-be9c-7d2c8015e4b2")
+	)
+	(wire
+		(pts
+			(xy 88.9 81.28) (xy 105.41 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fd315c7-170a-4f9f-9f80-0aac6996262f")
 	)
 	(wire
 		(pts
@@ -1584,7 +1817,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 81.28) (xy 86.36 81.28)
+			(xy 41.91 81.28) (xy 49.53 81.28)
 		)
 		(stroke
 			(width 0)
@@ -1604,13 +1837,13 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 81.28) (xy 104.14 81.28)
+			(xy 113.03 81.28) (xy 119.38 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "75b725c8-1a57-4cd0-af27-c171cc8485b1")
+		(uuid "770a8a96-f545-41fe-a419-bdc0dda2e6fe")
 	)
 	(wire
 		(pts
@@ -1644,6 +1877,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 86.36) (xy 49.53 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82c0cc59-e9a3-4f3f-b45f-9e38d7013047")
+	)
+	(wire
+		(pts
 			(xy 154.94 88.9) (xy 154.94 101.6)
 		)
 		(stroke
@@ -1671,6 +1914,16 @@
 			(type default)
 		)
 		(uuid "90ea041a-6ef0-4963-b356-5e4ed3bdc891")
+	)
+	(wire
+		(pts
+			(xy 80.01 81.28) (xy 88.9 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0fb06d0-2dc8-41ff-92aa-48e297c44ef2")
 	)
 	(wire
 		(pts
@@ -1714,13 +1967,13 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 83.82) (xy 73.66 83.82)
+			(xy 88.9 101.6) (xy 88.9 96.52)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e6b166f9-f807-4938-9a90-db6ac434b711")
+		(uuid "e9d708e7-2829-4e69-9dd5-eec214fdd10d")
 	)
 	(wire
 		(pts
@@ -1755,7 +2008,7 @@
 	)
 	(symbol
 		(lib_id "SamacSys_Parts:CDSOD323-T15")
-		(at 86.36 81.28 270)
+		(at 88.9 81.28 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1764,7 +2017,7 @@
 		(fields_autoplaced yes)
 		(uuid "016ca447-c803-4e6e-bbc1-885afcd65fb5")
 		(property "Reference" "D2"
-			(at 90.17 87.1219 90)
+			(at 92.71 87.1219 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1773,7 +2026,7 @@
 			)
 		)
 		(property "Value" "CDSOD323-T15"
-			(at 90.17 89.6619 90)
+			(at 92.71 89.6619 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1782,7 +2035,7 @@
 			)
 		)
 		(property "Footprint" "SamacSys_Parts:CDSOD323T15"
-			(at -7.29 91.44 0)
+			(at -4.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1792,7 +2045,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/CDSOD323-TxxC.PDF"
-			(at -107.29 91.44 0)
+			(at -104.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1802,7 +2055,7 @@
 			)
 		)
 		(property "Description" "ESD Suppressor TVS 15V 2-Pin SOD-323"
-			(at 86.36 81.28 0)
+			(at 88.9 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1811,7 +2064,7 @@
 			)
 		)
 		(property "Height" "1.14"
-			(at -307.29 91.44 0)
+			(at -304.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1821,7 +2074,7 @@
 			)
 		)
 		(property "Manufacturer_Name" "Bourns"
-			(at -407.29 91.44 0)
+			(at -404.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1831,7 +2084,7 @@
 			)
 		)
 		(property "Manufacturer_Part_Number" "CDSOD323-T15"
-			(at -507.29 91.44 0)
+			(at -504.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1841,7 +2094,7 @@
 			)
 		)
 		(property "Mouser Part Number" "652-CDSOD323-T15"
-			(at -607.29 91.44 0)
+			(at -604.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1851,7 +2104,7 @@
 			)
 		)
 		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/CDSOD323-T15?qs=N%252BiqXe0%252BQtt34P2RfDvduA%3D%3D"
-			(at -707.29 91.44 0)
+			(at -704.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1861,7 +2114,7 @@
 			)
 		)
 		(property "Arrow Part Number" "CDSOD323-T15"
-			(at -807.29 91.44 0)
+			(at -804.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1871,7 +2124,7 @@
 			)
 		)
 		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/cdsod323-t15/bourns"
-			(at -907.29 91.44 0)
+			(at -904.75 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2183,8 +2436,154 @@
 		)
 	)
 	(symbol
+		(lib_id "SamacSys_Parts:SR70")
+		(at 49.53 83.82 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2d569be5-c728-4a3c-abc1-b10b6fbf8c31")
+		(property "Reference" "D3"
+			(at 64.77 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SR70"
+			(at 64.77 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "SamacSys_Parts:SR70"
+			(at 76.2 -11.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://semtech.my.salesforce.com/sfc/p/E0000000JelG/a/44000000MCnk/NVmsteGoM4UAaX6hoGpvgktJ4xwPqA4OLClS_.gLyE4"
+			(at 76.2 -111.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "RailClamp Low-Capacitance TVS Diode Array"
+			(at 49.53 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.22"
+			(at 76.2 -311.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "SEMTECH"
+			(at 76.2 -411.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "SR70"
+			(at 76.2 -511.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 76.2 -611.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 76.2 -711.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" ""
+			(at 76.2 -811.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" ""
+			(at 76.2 -911.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "1a9bfc2f-7c67-4f4a-ba03-3d1e1006ddcf")
+		)
+		(pin "1"
+			(uuid "2b5edfa2-1b0a-4114-8b48-9a5f69950866")
+		)
+		(pin "4"
+			(uuid "688f59a9-bc91-4b30-8d58-222bce0222a6")
+		)
+		(pin "2"
+			(uuid "607feafb-92a0-4e23-9f11-e62de687c17c")
+		)
+		(instances
+			(project "PCB"
+				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
-		(at 107.95 81.28 90)
+		(at 109.22 81.28 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2193,7 +2592,7 @@
 		(fields_autoplaced yes)
 		(uuid "3564d69c-b8d8-4de4-a1ae-0ebfbf9eb1b3")
 		(property "Reference" "R1"
-			(at 107.95 74.93 90)
+			(at 109.22 74.93 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2201,7 +2600,7 @@
 			)
 		)
 		(property "Value" "100k 0603 0.1% 0.1W"
-			(at 107.95 77.47 90)
+			(at 109.22 77.47 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2209,7 +2608,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 107.95 83.058 90)
+			(at 109.22 83.058 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2218,7 +2617,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 107.95 81.28 0)
+			(at 109.22 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2227,7 +2626,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 107.95 81.28 0)
+			(at 109.22 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2236,7 +2635,7 @@
 			)
 		)
 		(property "MPN" "RT0603BRD07100KL"
-			(at 107.95 81.28 90)
+			(at 109.22 81.28 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2245,7 +2644,7 @@
 			)
 		)
 		(property "Manifacturer" "YAGEO"
-			(at 107.95 81.28 90)
+			(at 109.22 81.28 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2270,7 +2669,7 @@
 	)
 	(symbol
 		(lib_id "power:GNDA")
-		(at 74.93 85.09 0)
+		(at 41.91 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2279,7 +2678,7 @@
 		(fields_autoplaced yes)
 		(uuid "3664fe0a-6829-4d22-93df-d6f72650788a")
 		(property "Reference" "#PWR01"
-			(at 74.93 91.44 0)
+			(at 41.91 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2288,7 +2687,7 @@
 			)
 		)
 		(property "Value" "GNDA"
-			(at 74.93 90.17 0)
+			(at 41.91 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2296,7 +2695,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 74.93 85.09 0)
+			(at 41.91 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2305,7 +2704,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 74.93 85.09 0)
+			(at 41.91 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2314,7 +2713,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 74.93 85.09 0)
+			(at 41.91 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2956,7 +3355,7 @@
 				)
 			)
 		)
-		(property "Footprint" "SOT95P280X145-5N"
+		(property "Footprint" "SamacSys_Parts:SOT95P280X145-5N"
 			(at 180.34 181.28 0)
 			(effects
 				(font
@@ -3234,17 +3633,17 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GNDA")
-		(at 86.36 96.52 0)
+		(lib_id "power:GND")
+		(at 49.53 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "b23a4b6a-41a1-466e-bc40-6fc3f80bbe43")
-		(property "Reference" "#PWR02"
-			(at 86.36 102.87 0)
+		(uuid "8ddd311a-4d31-48a9-88d3-ee9d2cc48f5a")
+		(property "Reference" "#PWR021"
+			(at 49.53 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3252,8 +3651,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GNDA"
-			(at 86.36 101.6 0)
+		(property "Value" "GND"
+			(at 49.53 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3261,7 +3660,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 86.36 96.52 0)
+			(at 49.53 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3270,7 +3669,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 86.36 96.52 0)
+			(at 49.53 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3278,8 +3677,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 86.36 96.52 0)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 49.53 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3288,12 +3687,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "bbde4e96-0fca-4bce-8255-6f906abfd471")
+			(uuid "eb8ab8d2-894d-40cd-8258-44db20daa16a")
 		)
 		(instances
 			(project "PCB"
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
-					(reference "#PWR02")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -3301,7 +3700,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x02_Socket")
-		(at 68.58 83.82 180)
+		(at 36.83 83.82 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3310,7 +3709,7 @@
 		(fields_autoplaced yes)
 		(uuid "c054de4d-99f6-4b15-99f2-778090d16da4")
 		(property "Reference" "J1"
-			(at 69.215 76.2 0)
+			(at 37.465 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3318,7 +3717,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02_Socket"
-			(at 69.215 78.74 0)
+			(at 37.465 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3326,7 +3725,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 68.58 83.82 0)
+			(at 36.83 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3335,7 +3734,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 68.58 83.82 0)
+			(at 36.83 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3344,7 +3743,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x02, script generated"
-			(at 68.58 83.82 0)
+			(at 36.83 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3604,6 +4003,72 @@
 			(project ""
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
 					(reference "NT1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 88.9 101.6 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fc639689-e236-468d-b5c8-6c1cb5960c2c")
+		(property "Reference" "#PWR02"
+			(at 88.9 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 88.9 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 88.9 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 88.9 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 88.9 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "76ebb32a-9517-4f97-a9fd-9fadb61924a3")
+		)
+		(instances
+			(project "PCB"
+				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
