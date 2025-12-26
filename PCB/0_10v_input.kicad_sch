@@ -1557,6 +1557,18 @@
 			(embedded_fonts no)
 		)
 	)
+	(rectangle
+		(start 223.52 90.17)
+		(end 267.97 110.49)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 7dead36d-194d-4d92-8273-55428c4e2d29)
+	)
 	(text "Rilevamento linea 0-10 V non presente - Alternative e scelta progettuale\n\nIl rilevamento della presenza della linea di comando 0-10 V può essere implementato con diverse strategie, ciascuna con specifici compromessi tra semplicità hardware, affidabilità e robustezza di sistema.\n\n1) Pull-down passivo (fail-safe)- AMBIGUO\nL'aggiunta di un resistore ad alto valore verso GND (tipicamente ~1 MΩ) forza la linea a 0 V in caso di linea aperta.\nQuesta soluzione è semplice e robusta e garantisce un comportamento fail-safe (open line → 0%), ma non consente di distinguere in modo certo tra una linea realmente a 0 V e una linea scollegata.\n\n2) Bias fisso della linea - possibilità!\nLa linea viene polarizzata verso un valore intermedio o definito tramite resistori ad alta impedenza. In caso di linea aperta, il nodo assume un valore \"non valido\" riconoscibile via firmware.\nQuesta tecnica permette il rilevamento hardware dell'open line, ma può influenzare sorgenti 0-10 V esterne e introduce ambiguità in presenza di driver con pull-up interni.\n\n3) Misura di impedenza / corrente - difficile\nLa presenza della linea viene dedotta iniettando una corrente nota o misurando l'impedenza del nodo. È una soluzione robusta e industriale, ma richiede hardware aggiuntivo e maggiore complessità di validazione.\n\n4) Pull-down + test attivo con weak pull-up (soluzione adottata)\nLa linea è mantenuta fail-safe tramite un pull-down ad alta impedenza. Periodicamente, il firmware abilita per un tempo limitato un pull-up molto debole (tramite GPIO e resistore nell'ordine dei MΩ).\nSe la tensione sul nodo varia in modo misurabile, la linea è da considerarsi scollegata o ad alta impedenza; se rimane stabile, la linea è pilotata da una sorgente esterna.\nSe abilito un weak pull-up per un breve intervallo e NON vedo una variazione significativa di tensione (ΔV) entro un tempo ΔT, allora la linea 0-10 V è pilotata da una sorgente esterna ed è quindi collegata.\n\nQuesta soluzione rappresenta il miglior compromesso perché:\n\nmantiene un comportamento sicuro e prevedibile in condizioni normali;\n\nnon influenza il funzionamento dei driver 0-10 V esterni;\n\nconsente una distinzione affidabile tra \"0 V reale\" e \"linea non presente\";\n\nintroduce complessità minima e nessun impatto EMC significativo.\n\nPer questi motivi, il rilevamento tramite test attivo con weak pull-up è considerato la scelta più robusta e flessibile per applicazioni 0-10 V in ambito lighting e building control."
 		(exclude_from_sim no)
 		(at -1.778 -119.126 0)
@@ -1567,6 +1579,30 @@
 			(justify left)
 		)
 		(uuid "15ec222e-ec13-48fe-a5a4-0e29cf9b1ef0")
+	)
+	(text "Occhio che produce una fcut a 1,6Hz e un delay di 0.1s. Lo voglio veramente?"
+		(exclude_from_sim no)
+		(at 270.002 101.854 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "343c7cc9-b922-48e0-a7c5-b30e91c2546f")
+	)
+	(text "Suggested by https://documentation.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32c6/schematic-checklist.html?title=ESP32-C6%20Hardware%20Design%20Guidelines in ADC section"
+		(exclude_from_sim no)
+		(at 334.01 99.314 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "3b78ded4-4c09-4b5b-9f3a-5a1bacb3d8ec")
 	)
 	(text "preverdere ESD si gle line to GND al posto di sr70."
 		(exclude_from_sim no)
@@ -1638,6 +1674,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7abba8fe-efad-44d0-98c8-2f6515f4b62c")
+	)
+	(junction
+		(at 229.87 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8bcf4071-1d08-4e30-98c3-4254e1f39b0f")
 	)
 	(junction
 		(at 185.42 88.9)
@@ -1757,7 +1799,7 @@
 	)
 	(wire
 		(pts
-			(xy 223.52 86.36) (xy 234.95 86.36)
+			(xy 223.52 86.36) (xy 229.87 86.36)
 		)
 		(stroke
 			(width 0)
@@ -1837,6 +1879,16 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 91.44) (xy 229.87 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68211202-4fc7-480c-9089-4b1e10e11167")
+	)
+	(wire
+		(pts
 			(xy 113.03 81.28) (xy 119.38 81.28)
 		)
 		(stroke
@@ -1897,6 +1949,16 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 86.36) (xy 234.95 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8ea98345-6653-48dc-a40e-13acb51e4ee2")
+	)
+	(wire
+		(pts
 			(xy 187.96 86.36) (xy 196.85 86.36)
 		)
 		(stroke
@@ -1934,6 +1996,16 @@
 			(type default)
 		)
 		(uuid "cef0f7d4-4989-42c6-bccd-89fae374fc0c")
+	)
+	(wire
+		(pts
+			(xy 229.87 102.87) (xy 229.87 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d2d428fd-f58e-4af3-992d-c5600f325adc")
 	)
 	(wire
 		(pts
@@ -2255,7 +2327,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GNDA"
+		(property "Value" "GNDA_1"
 			(at 185.42 107.95 0)
 			(effects
 				(font
@@ -2321,7 +2393,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GNDA"
+		(property "Value" "GNDA_1"
 			(at 193.04 107.95 0)
 			(effects
 				(font
@@ -2369,6 +2441,94 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 229.87 95.25 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "190d1ef9-380d-48bf-bb61-1516039542af")
+		(property "Reference" "C13"
+			(at 233.68 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF 50V X7R ±5% 0603"
+			(at 233.68 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 230.8352 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 229.87 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 229.87 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CC0603JRX7R9BB104"
+			(at 229.87 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manifacturer" "YAGEO"
+			(at 229.87 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7cf62656-6146-4890-a504-a74a9bc643ec")
+		)
+		(pin "2"
+			(uuid "f2f7574c-2680-4221-836d-9c38151aa4c9")
+		)
+		(instances
+			(project "PCB"
+				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
+					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GNDA")
 		(at 139.7 120.65 270)
 		(unit 1)
@@ -2387,7 +2547,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GNDA"
+		(property "Value" "GNDA_1"
 			(at 135.89 120.6499 90)
 			(effects
 				(font
@@ -2686,7 +2846,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GNDA"
+		(property "Value" "GNDA_1"
 			(at 41.91 91.44 0)
 			(effects
 				(font
@@ -2907,7 +3067,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GNDA"
+		(property "Value" "GNDA_1"
 			(at 119.38 106.68 0)
 			(effects
 				(font
@@ -3149,7 +3309,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GNDA"
+		(property "Value" "GNDA_1"
 			(at 132.08 106.68 0)
 			(effects
 				(font
@@ -3497,7 +3657,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GNDA"
+		(property "Value" "GNDA_1"
 			(at 154.94 106.68 0)
 			(effects
 				(font
@@ -3605,6 +3765,72 @@
 			(project "PCB"
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
 					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GNDA")
+		(at 229.87 102.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9dacac42-3b89-4f09-85ea-effdc41b8e69")
+		(property "Reference" "#PWR043"
+			(at 229.87 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDA_1"
+			(at 229.87 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 229.87 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 229.87 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(at 229.87 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9552e008-21d7-4cee-afdb-94f10d7412b5")
+		)
+		(instances
+			(project "PCB"
+				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
+					(reference "#PWR043")
 					(unit 1)
 				)
 			)
@@ -3966,7 +4192,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm"
 			(at 142.24 120.65 0)
 			(effects
 				(font

@@ -1550,7 +1550,7 @@
 		)
 		(uuid "303636c7-4871-4f7b-9efd-b7ad684a23e8")
 	)
-	(text "preverdere ESD si gle line to GND al posto di sr70."
+	(text "preverdere ESD single line to GND al posto di sr70."
 		(exclude_from_sim no)
 		(at 184.15 71.628 0)
 		(effects
@@ -1970,7 +1970,7 @@
 		)
 		(uuid "323d49da-092e-42ec-b305-d8a950e59bd9")
 	)
-	(hierarchical_label "SCLK"
+	(hierarchical_label "SCL"
 		(shape input)
 		(at 43.18 73.66 180)
 		(effects
@@ -2781,7 +2781,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 132.08 80.518 90)
 			(effects
 				(font
@@ -3963,7 +3963,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_Pad1.0x1.5mm"
 			(at 142.24 111.76 0)
 			(effects
 				(font
