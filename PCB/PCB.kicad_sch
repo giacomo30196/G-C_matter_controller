@@ -5,6 +5,24 @@
 	(uuid "6bd10cb8-11ca-4919-a8d8-88b44cd4cac7")
 	(paper "A4")
 	(lib_symbols)
+	(text "da fixare nomenclature 3v3 ecc"
+		(exclude_from_sim no)
+		(at 85.09 72.644 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "8a3247c9-f4e6-48ff-b903-a40254493fa6")
+	)
+	(junction
+		(at 137.16 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3712a7d5-bd35-4efe-a796-301dc3a0a38a")
+	)
 	(wire
 		(pts
 			(xy 127 83.82) (xy 127 96.52)
@@ -14,6 +32,16 @@
 			(type default)
 		)
 		(uuid "19c18f95-a6a2-45af-ab03-3a2c8be953b1")
+	)
+	(wire
+		(pts
+			(xy 137.16 83.82) (xy 137.16 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "222952ba-eb62-4029-9557-60a2f2cf1302")
 	)
 	(wire
 		(pts
@@ -37,6 +65,16 @@
 	)
 	(wire
 		(pts
+			(xy 105.41 96.52) (xy 105.41 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6fc90c43-3fc6-4907-ae4c-1478ee6cdebf")
+	)
+	(wire
+		(pts
 			(xy 109.22 106.68) (xy 119.38 106.68)
 		)
 		(stroke
@@ -44,6 +82,26 @@
 			(type default)
 		)
 		(uuid "7bd1f4b2-3660-48e8-b829-de54ea20d8ca")
+	)
+	(wire
+		(pts
+			(xy 137.16 91.44) (xy 137.16 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c933089d-4ed0-4530-9c70-72502b26a9f2")
+	)
+	(wire
+		(pts
+			(xy 105.41 91.44) (xy 137.16 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d03a9d62-f543-4a9d-a8d7-d515a310c542")
 	)
 	(sheet
 		(at 156.21 96.52)
@@ -172,7 +230,7 @@
 			)
 		)
 		(pin "VOUT_3V3" output
-			(at 124.46 83.82 270)
+			(at 137.16 83.82 270)
 			(uuid "756ff3f5-83e0-4270-a05b-15f02506e3da")
 			(effects
 				(font
@@ -305,6 +363,16 @@
 				(justify right)
 			)
 		)
+		(pin "VIN_3V3" input
+			(at 137.16 96.52 90)
+			(uuid "935605bd-511a-4cb1-9b8b-4013b12a7b6e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
 		(instances
 			(project "PCB"
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7"
@@ -350,6 +418,16 @@
 		(pin "V_SENSE_OUT" output
 			(at 109.22 106.68 0)
 			(uuid "3efe32be-0cde-4a81-97d9-d7b7fcd3e1c3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "VIN_3V3" input
+			(at 105.41 96.52 90)
+			(uuid "6ec78c32-cd65-4237-9141-b24a7d53922a")
 			(effects
 				(font
 					(size 1.27 1.27)

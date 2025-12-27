@@ -2067,6 +2067,19 @@
 		)
 		(uuid "ff681ddd-7234-4712-a9bd-7af7a934c383")
 	)
+	(hierarchical_label "VIN_3V3"
+		(shape input)
+		(at 240.03 40.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "1a825467-992b-458f-8399-9905aa0c88e8")
+	)
 	(hierarchical_label "V_SENSE_OUT"
 		(shape output)
 		(at 234.95 86.36 0)
@@ -3115,6 +3128,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 240.03 40.64 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4cff3727-f19d-4572-9d53-ddaf29a144a7")
+		(property "Reference" "#PWR07"
+			(at 243.84 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 236.22 40.6399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 240.03 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 240.03 40.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4274b1fe-4f8d-4c4d-8ab7-4180eb06ddcb")
+		)
+		(instances
+			(project "PCB"
+				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
+					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 132.08 95.25 180)
 		(unit 1)
@@ -3351,73 +3431,6 @@
 			(project "PCB"
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
 					(reference "#PWR04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 194.31 88.9 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7e019aac-ce7e-48da-b74a-a1b3afd58e2c")
-		(property "Reference" "#PWR07"
-			(at 190.5 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 198.12 88.8999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 194.31 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 194.31 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 194.31 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "da43b77c-dbda-4867-ae53-9d72b4ea2513")
-		)
-		(instances
-			(project ""
-				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
-					(reference "#PWR07")
 					(unit 1)
 				)
 			)
@@ -4295,6 +4308,73 @@
 			(project "PCB"
 				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
 					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 194.31 88.9 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ff8e9f81-bd03-4a6a-9eef-59596dc2e2a5")
+		(property "Reference" "#PWR051"
+			(at 190.5 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 198.12 88.8999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 194.31 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 194.31 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 194.31 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "759b4507-0047-4156-a0c1-e6b4134b444e")
+		)
+		(instances
+			(project "PCB"
+				(path "/6bd10cb8-11ca-4919-a8d8-88b44cd4cac7/8cfa68d9-1d86-47fe-9b0a-5b7093a7a1de"
+					(reference "#PWR051")
 					(unit 1)
 				)
 			)
